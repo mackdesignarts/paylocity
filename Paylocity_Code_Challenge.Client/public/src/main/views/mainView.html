@@ -1,0 +1,47 @@
+﻿<div class="container">
+    <div class="row">
+        <form role="form">
+            <div class="col-lg-6">
+                <div class="well well-sm"><strong>Paylocity - Employee Benefit Costs Preview</strong></div>
+                <div class="form-group">
+                    <label for="FirstName">Enter First Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-ng-model="FirstName" name="FirstName" id="FirstName" placeholder="First Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="LastName">Enter Last Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-ng-model="LastName" id="LastName" name="LastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="DependentsCount">Total Dependents</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-ng-model="TotalDependents" id="TotalDependents" name="TotalDependents" placeholder="Number of dependents" required>
+                    </div>
+                </div>    
+                
+                <div data-ng-hide="hideDependents;" data-ng-init="dependents">
+                  <ul>
+                    <li data-ng-repeat="n in dependents">
+                      Dependent {{ n.id }}: 
+                        <input type="text" class="form-control" data-ng-model="dependents[n.id-1].FirstName" id="DepFirstName_{{n.id}}" name="DepFirstName_{{n.id}}" placeholder="First Name" required>&nbsp;&nbsp;
+                        <input type="text" class="form-control" data-ng-model="dependents[n.id-1].LastName" id="DepLastName_{{n.id}}" name="DepLastName_{{n.id}}" placeholder="Last Name" required>
+                        <br />
+                    </li>
+                  </ul>
+                </div>                            
+                <input type="submit" data-ng-click="submit();" name="submit" id="submit" value="Generate Cost" class="btn btn-info pull-right">
+            </div>
+        </form>
+        <div class="col-lg-5 col-md-push-1" data-ng-hide="isSetResult">
+            <div class="col-md-12">
+                <div class="alert alert-success">
+                    <strong> Total Deduction Costs for {{FirstName}} is: {{TotalDeductions | currency}}</strong>
+                </div>
+            </div>
+            <input type="submit" data-ng-click="save();" name="save" id="save" value="Save Employee" class="btn btn-info pull-right">
+        </div>
+    </div>
+</div>

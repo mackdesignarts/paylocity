@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PaylocityCCEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PaylocityCCEntitiesStoreContainer">
+    <EntitySet Name="UserAccounts" EntityType="PaylocityCCEntities.Store.UserAccounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dependents" EntityType="PaylocityCCEntities.Store.Dependents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BenefitsCosts" EntityType="PaylocityCCEntities.Store.BenefitsCosts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DependentsUserAccount" Association="PaylocityCCEntities.Store.DependentsUserAccount">
+      <End Role="Dependents" EntitySet="Dependents" />
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserAccounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DependentCount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BenefitTotalCost" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dependents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserAccountId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BenefitsCosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeBenefit" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DependentBenefit" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="DependentsUserAccount">
+    <End Role="Dependents" Type="PaylocityCCEntities.Store.Dependents" Multiplicity="*" />
+    <End Role="UserAccount" Type="PaylocityCCEntities.Store.UserAccounts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dependents">
+        <PropertyRef Name="UserAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PaylocityCCEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PaylocityCCEntitiesContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserAccounts" EntityType="PaylocityCCEntities.UserAccount" />
+          <EntitySet Name="Dependents" EntityType="PaylocityCCEntities.Dependents" />
+          <AssociationSet Name="DependentsUserAccount" Association="PaylocityCCEntities.DependentsUserAccount">
+            <End Role="Dependents" EntitySet="Dependents" />
+            <End Role="UserAccount" EntitySet="UserAccounts" />
+          </AssociationSet>
+          <EntitySet Name="BenefitsCosts" EntityType="PaylocityCCEntities.BenefitsCost" />
+        </EntityContainer>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Dependents" Relationship="PaylocityCCEntities.DependentsUserAccount" FromRole="UserAccount" ToRole="Dependents" />
+          <Property Name="DependentCount" Type="String" Nullable="false" />
+          <Property Name="BenefitTotalCost" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dependents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="UserAccount" Relationship="PaylocityCCEntities.DependentsUserAccount" FromRole="Dependents" ToRole="UserAccount" />
+          <Property Name="UserAccountId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="DependentsUserAccount">
+          <End Type="PaylocityCCEntities.Dependents" Role="Dependents" Multiplicity="*" />
+          <End Type="PaylocityCCEntities.UserAccount" Role="UserAccount" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dependents">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BenefitsCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeBenefit" Type="String" Nullable="false" />
+          <Property Name="DependentBenefit" Type="String" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PaylocityCCEntitiesStoreContainer" CdmEntityContainer="PaylocityCCEntitiesContainer">
+    <EntitySetMapping Name="UserAccounts">
+      <EntityTypeMapping TypeName="IsTypeOf(PaylocityCCEntities.UserAccount)">
+        <MappingFragment StoreEntitySet="UserAccounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DependentCount" ColumnName="DependentCount" />
+          <ScalarProperty Name="BenefitTotalCost" ColumnName="BenefitTotalCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dependents">
+      <EntityTypeMapping TypeName="IsTypeOf(PaylocityCCEntities.Dependents)">
+        <MappingFragment StoreEntitySet="Dependents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenefitsCosts">
+      <EntityTypeMapping TypeName="IsTypeOf(PaylocityCCEntities.BenefitsCost)">
+        <MappingFragment StoreEntitySet="BenefitsCosts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeBenefit" ColumnName="EmployeeBenefit" />
+          <ScalarProperty Name="DependentBenefit" ColumnName="DependentBenefit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

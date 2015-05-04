@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity_Code_Challenge", "Paylocity_Code_Challenge\Paylocity_Code_Challenge.csproj", "{AE45702C-4F88-4756-879E-5BEADD5ED41E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity_Code_Challenge.Tests", "Paylocity_Code_Challenge.Tests\Paylocity_Code_Challenge.Tests.csproj", "{B73B5074-9AF1-49C2-A5C4-43D035B59E83}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Paylocity_Code_Challenge.Client", "Paylocity_Code_Challenge.Client\Paylocity_Code_Challenge.Client.njsproj", "{13AA9F3F-E59B-49AA-8A40-F1651BE3C679}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity_Code_Challenge.Data", "Paylocity_Code_Challenge.Data\Paylocity_Code_Challenge.Data.csproj", "{D020E2D5-11C6-4AA9-82C8-622CEC753716}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE45702C-4F88-4756-879E-5BEADD5ED41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE45702C-4F88-4756-879E-5BEADD5ED41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE45702C-4F88-4756-879E-5BEADD5ED41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE45702C-4F88-4756-879E-5BEADD5ED41E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B73B5074-9AF1-49C2-A5C4-43D035B59E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B73B5074-9AF1-49C2-A5C4-43D035B59E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B73B5074-9AF1-49C2-A5C4-43D035B59E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B73B5074-9AF1-49C2-A5C4-43D035B59E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13AA9F3F-E59B-49AA-8A40-F1651BE3C679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AA9F3F-E59B-49AA-8A40-F1651BE3C679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AA9F3F-E59B-49AA-8A40-F1651BE3C679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AA9F3F-E59B-49AA-8A40-F1651BE3C679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D020E2D5-11C6-4AA9-82C8-622CEC753716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D020E2D5-11C6-4AA9-82C8-622CEC753716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D020E2D5-11C6-4AA9-82C8-622CEC753716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D020E2D5-11C6-4AA9-82C8-622CEC753716}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
