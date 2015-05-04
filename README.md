@@ -1,4 +1,4 @@
-## Paylocity Code Challenge
+# Paylocity Code Challenge
 
 An ASP.NET MVC Angular application for determining employee payroll deductions.
 
@@ -8,9 +8,9 @@ Requires Windows for IIS or Visual Studio / IIS express.
 
 1. Clone repository. Make sure Node.js and NPM is installed globally.
 2. From the command line, navigate to the .Client folder and run 
-* >npm install
-* >bower install
-* >gulp
+	- >npm install
+	- >bower install
+	- >gulp
 3. Create a new database using SSMS.
 4. In Visual Studio, navigate to the .Data folder and open the .edmx file.
 5. Choose "Create database from model" to generate SQL query.
