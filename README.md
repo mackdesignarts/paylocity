@@ -1,6 +1,16 @@
-# Paylocity Code Challenge
+# Basic ASP.NET MVC / Angular / Node Application
 
-An ASP.NET MVC Angular application for determining employee payroll deductions.
+An ASP.NET MVC Angular application for determining employee payroll deductions. This application was built as part of a code challenge. Its a barebones, simple web app that can be installed on Windows machines.
+
+It demonstrates how I structure full stack Angular, Node and ASP.NET technologies with an MS SQL data store.
+
+## Components
+1. Entity Framework ORM using model-first
+2. Web API RESTful services
+3. AngularJS client and UI data model
+4. Node tools to manage JavaScript and front-end asset deployment
+5. MS SQL database with T-SQL query language 
+6. Gulp and Bower managing dependencies on the front end
 
 Requires Windows for IIS or Visual Studio / IIS express. 
 
